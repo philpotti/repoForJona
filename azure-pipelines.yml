@@ -1,0 +1,65 @@
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+  displayName: 'npm install'
+
+- script: |
+    npm run cy:verify
+  displayName: 'cy:verify'
+
+- script: |
+    npm run cy:info
+  displayName: 'cy:info'
+
+- script: |
+    npm run cy:run:chrome
+  displayName: 'cy:run:chrome'
+  continueOnError: true
+
+
+- script: |
+    npm run cy:run:edge
+  displayName: 'cy:run:edge'
+  continueOnError: true
+
+
+- script: |
+   npm run cy:run:firefox 
+  displayName: 'cy:run:firefox'
+  continueOnError: true
+
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'cypress/reports/junit/**/*.xml'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: |
+      **
+      !node_modules/**/*
+      !.git/**/*
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Get-ChildItem -Recurse $(Agent.BuildDirectory) | Select Name,FullName'

@@ -1,0 +1,11 @@
+first_name,last_name,middle_name,title,grade_level,email,local_id,role,global_id,photoUrl
+Deimon,Hedrick,Michelle,Mr,2,deimon.hedrick@cert3.classlink.k12.nj.us,AU0506,Administrator,AT1234,
+William,Guillen,Wayne,Mr,2,william.guillen@cert3.classlink.k12.nj.us,AU0205,Teacher,AT1234,
+Tori,Mata,Alexis,Mr,2,tori.mata@cert3.classlink.k12.nj.us,AU1234,Teacher,AT1234,
+Romi,Bracy,,,2,romi.bracy@noemail.com,AU4567,Student,AT1234,
+Alijah,Bracken,,,3,alijah.bracken@noemail.com,AU5678,Student,AT1234,
+Jailah,Brace,,,2,jailah.brace@noemail.com,AU6789,Student,AT1234,
+Eros,Bozeman,,,2,eros.bozeman@noemail.com,AU7890,Student,AT2345,
+Amanuel,Bozarth,,,3,amanuel.bozarth@noemail.com,AU8901,Student,AT2345,
+Auria,Boynton,,,2,auria.boynton@noemail.com,AU9012,Student,AT2345,
+Adan II,Boyle,,,3,adanii.boyle@noemail.com,AU0123,Student,AT1234,
